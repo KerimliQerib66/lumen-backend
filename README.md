@@ -1,6 +1,6 @@
 # Pocket Lumen - Mobile Log Viewer Backend
 
-MVP Backend for streaming Docker container logs to iOS clients.
+MVP Backend for streaming Docker container logs.
 
 ## 🚀 Features
 - **REST API**: List all running containers.
