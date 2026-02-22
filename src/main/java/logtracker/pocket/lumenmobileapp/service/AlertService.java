@@ -195,7 +195,7 @@ public class AlertService {
 
                     emailService.sendHtmlEmail(
                             targetEmail,
-                            "🚨 Alert: High " + type + " usage in " + containerName,
+                            " Alert: High " + type + " usage in " + containerName,
                             "alert-email",
                             variables
                     );

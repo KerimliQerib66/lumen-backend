@@ -21,7 +21,9 @@ public class EmailService {
     private final JavaMailSender mailSender;
     private final TemplateEngine templateEngine;
 
-    @Value("${spring.mail.username}")
+    // Resend requires the "From" address to be a verified domain, e.g., "onboarding@resend.dev"
+    // or your own verified domain. You cannot use "resend" as the email address.
+    @Value("${spring.mail.username:onboarding@resend.dev}")
     private String fromEmail;
 
 
