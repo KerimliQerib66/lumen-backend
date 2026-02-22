@@ -110,9 +110,9 @@ services:
     command: >
       sh -c "
       while true; do
-        echo '[$(date)] [INFO] User login successful - user_id: 12345';
-        echo '[$(date)] [INFO] API request: GET /api/users - Status: 200';
-        echo '[$(date)] [DEBUG] Database query executed in 45ms';
+        echo '[$$(date)] [INFO] User login successful - user_id: 12345';
+        echo '[$$(date)] [INFO] API request: GET /api/users - Status: 200';
+        echo '[$$(date)] [DEBUG] Database query executed in 45ms';
         sleep 3;
       done
       "
@@ -127,10 +127,10 @@ services:
     command: >
       sh -c "
       while true; do
-        echo '[$(date)] [ERROR] Connection timeout to external API';
-        echo '[$(date)] [CRITICAL] Database connection pool exhausted!';
+        echo '[$$(date)] [ERROR] Connection timeout to external API';
+        echo '[$$(date)] [CRITICAL] Database connection pool exhausted!';
         sleep 8;
-        echo '[$(date)] [INFO] Service recovered';
+        echo '[$$(date)] [INFO] Service recovered';
         sleep 12;
       done
       "
@@ -180,10 +180,10 @@ services:
     command: >
       sh -c "
       while true; do
-        echo '[$(date)] [INFO] Job started: email_notification_batch';
-        echo '[$(date)] [INFO] Processing 250 emails...';
+        echo '[$$(date)] [INFO] Job started: email_notification_batch';
+        echo '[$$(date)] [INFO] Processing 250 emails...';
         sleep 3;
-        echo '[$(date)] [INFO] Job completed successfully';
+        echo '[$$(date)] [INFO] Job completed successfully';
         sleep 10;
       done
       "
@@ -198,7 +198,7 @@ services:
     command: >
       sh -c "
       while true; do
-        echo '[$(date)] [WARN] Memory usage: 85%';
+        echo '[$$(date)] [WARN] Memory usage: 85%';
         dd if=/dev/zero of=/tmp/bigfile bs=1M count=50 2>/dev/null;
         sleep 10;
         rm -f /tmp/bigfile;
