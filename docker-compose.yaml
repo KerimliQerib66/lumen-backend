@@ -190,6 +190,25 @@ services:
     networks:
       - lumen-network
 
+  heavy-app:
+    image: alpine:latest
+    container_name: mock-heavy-app
+    restart: unless-stopped
+    command: >
+      sh -c "
+      apk add --no-cache stress-ng >/dev/null;
+      while true; do
+        echo '[$$(date)] [WARN] High CPU detected';
+        echo '[$$(date)] [ERROR] Slow database response';
+        stress-ng --cpu 1 --cpu-load 50 --timeout 5;
+        dd if=/dev/zero of=/tmp/testfile bs=1M count=100 2>/dev/null;
+        sleep 5;
+        rm -f /tmp/testfile;
+      done
+      "
+    networks:
+      - lumen-network
+
   # High Memory Usage
   log-memory-heavy:
     image: alpine:latest
